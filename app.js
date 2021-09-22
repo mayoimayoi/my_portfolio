@@ -3,6 +3,11 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const ejs = require("ejs");
+const mail = require("./public/JavaScript/mail");
+
+function main() {
+  console.log(mail.test());
+}
 
 app.use(express.static(__dirname + "/public"));
 require("dotenv").config();

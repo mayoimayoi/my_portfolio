@@ -1,5 +1,9 @@
-// nodemailerの読み込み
+"use strict";
 const NodeMailer = require("nodemailer");
+
+function test() {
+  console.log("aaa");
+}
 
 // メール送信関数
 function sendMail(smtpData, mailData) {
@@ -27,7 +31,7 @@ function main() {
     secure: true, // true = SSL
     auth: {
       user: "tky529@gmail.com", // メールアドレス（自身のアドレスを指定）
-      pass: "Takutaku529!", // パスワード（自身のパスワードを指定）
+      pass: "", // パスワード（自身のパスワードを指定）
     },
   };
 
