@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EACf,QAAQ,EAAE,QAAQ;CAMnB;;AAPD,AAEE,gBAFc,CAEd,sBAAsB,CAAC;EACrB,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,KAAK;EACV,IAAI,EAAE,KAAK;CACZ",
+    "sources": [
+        ".first-animation.scss"
+    ],
+    "names": [],
+    "file": ".first-animation.css"
+}
