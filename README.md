@@ -1,2 +1,2 @@
 # my_portfolio
-My portfoluo site.
+My portfolio site.
