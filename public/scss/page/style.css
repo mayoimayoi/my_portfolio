@@ -355,6 +355,7 @@
 }
 
 .toptitle .toptitle--text {
+  padding-top: 60px;
   max-width: 1024px;
   width: 80%;
   margin: 0 auto;
