@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./../../scss/style.css" />
-    <link rel="stylesheet" href="./../../scss/page/style.css" />
+    <link rel="stylesheet" href="scss/style.css" />
+    <link rel="stylesheet" href="scss/page/style.css" />
     <title>ポートフォリオ</title>
   </head>
   <body>
-    <div class="shutter">
+    <!-- <div class="shutter">
       <div class="shutter-sentence">
         <p>Wellcome to</p>
         <p>mypage!!</p>
@@ -30,7 +30,7 @@
           class="first-animation__shoot"
         />
       </div>
-    </div>
+    </div> -->
     <div id="particles-js"></div>
     <header class="header-nav">
       <div class="header-nav__menu">
@@ -43,7 +43,12 @@
       </div>
     </header>
     <main>
-      <div class="toptitle pt-80" id="top">
+      <div class="errorpart">
+        <% if (errorpart != "") { %>
+        <p class="pt-80"><%= errorpart %></p>
+        <% } %>
+      </div>
+      <div class="toptitle" id="top">
         <div class="toptitle--text">
           <h1>
             If you want to go fast, go alone. <br />
@@ -62,6 +67,11 @@
                 本業とは別にITスキル向上のため、<br />
                 企業様向けのWEBサイトを構築しております
               </p>
+              <div class="about-link">
+                <p>link:</p>
+                <a href="https://twitter.com/mayoi88n">Twitter</a>
+                <a href="https://www.instagram.com/takuyahirane/">Instagram</a>
+              </div>
             </div>
             <div class="top-contents__items__img top-contents__profileimg">
               <img
@@ -77,17 +87,15 @@
                 />
               </div>
             </div>
-            <div
-              class="top-contents__items__img__sp top-contents__profileimg py-100"
-            >
+            <div class="top-contents__items__img__sp">
               <img
-                class="br-40 top-contents__profileimg--one"
+                class="br-40"
                 src="./../../img/myPhot.png"
                 alt="プロフィール写真"
               />
-              <div class="top-contents__profileimg--second">
+              <div class="">
                 <img
-                  class="br-40"
+                  class="br-40 mr-40"
                   src="./../../img/myPhot2.png"
                   alt="プロフィール写真2枚目"
                 />
@@ -213,12 +221,17 @@
         </section>
         <section class="top-contents pt-80" id="Contact">
           <h2>Contact</h2>
-          <ul>
-            <li><a href="#">Mail</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
-          </ul>
-          <button onclick="test()">test</button>
+          <form class="customer-form" action="/sendmail " method="POST">
+            <p class="mt-20">連絡先（メールアドレス）</p>
+            <input type="email" name="customer_address" />
+            <p class="mt-20">その他の連絡先（twitter等）</p>
+            <input type="text" name="customer_account" />
+            <p class="mt-20">問い合わせ内容</p>
+            <textarea class="" name="customer_content"></textarea>
+            <div class="form-btn my-40">
+              <button class="form-btn">送信</button>
+            </div>
+          </form>
         </section>
         <div class="top-icon">
           <a href="#top">
