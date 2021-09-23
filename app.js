@@ -63,7 +63,7 @@ function sendMail(smtpData, mailData) {
 function sendmail() {
   const smtpData = {
     host: "smtp.gmail.com",
-    port: "465", // Gmailの場合　SSL: 465 / TLS: 587
+    port: "465", // Gmailの場合SSL: 465 / TLS: 587
     secure: true, // true = SSL
     auth: {
       user: process.env.mailaddress,
