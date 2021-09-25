@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const ejs = require("ejs");
 const helmet = require("helmet");
-const mail = require("./JavaScript/mail");
+const mail = require("./public/JavaScript/mail");
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
@@ -37,7 +37,9 @@ app.post("/sendmail", (req, res) => {
     customer_info.content = "";
     error_part = "文字が長すぎます。1000字以下にしてください";
   } else {
-    mail.makeMail(customer_info);
+    console.log(customer_info);
+    // mail.makeMail(customer_info);
+    mail.test();
     error_part =
       "お問い合わせありがとうございます。返信が届くまで少々お待ちください。";
   }

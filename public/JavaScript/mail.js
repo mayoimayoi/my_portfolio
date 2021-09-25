@@ -52,4 +52,7 @@ module.exports = {
     this.sendMail(smtpData, mailData);
     console.log("送信完了");
   },
+  test() {
+    console.log("aaa");
+  },
 };
