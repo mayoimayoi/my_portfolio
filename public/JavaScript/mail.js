@@ -3,6 +3,7 @@ const NodeMailer = require("nodemailer");
 module.exports = {
   // メール送信用関数
   sendMail(smtpData, mailData) {
+    console.log("sendMail内");
     const transporter = NodeMailer.createTransport(smtpData);
 
     transporter.sendMail(mailData, function (error, info) {
@@ -14,6 +15,7 @@ module.exports = {
     });
   },
   makeMail(customer_info) {
+    console.log("smtpData前");
     const smtpData = {
       host: "smtp.gmail.com",
       port: "465", // Gmailの場合SSL: 465 / TLS: 587
@@ -23,7 +25,7 @@ module.exports = {
         pass: process.env.mailpass,
       },
     };
-
+    console.log("mailData前");
     const mailData = {
       from: '"お問い合わせ用アドレス" <' + smtpData.auth.user + ">",
       to: process.env.sendaddress,
@@ -46,6 +48,7 @@ module.exports = {
     };
 
     // メールを送信
+    console.log("this.sendMail前");
     this.sendMail(smtpData, mailData);
     console.log("送信完了");
   },
