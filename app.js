@@ -37,9 +37,7 @@ app.post("/sendmail", (req, res) => {
     customer_info.content = "";
     error_part = "文字が長すぎます。1000字以下にしてください";
   } else {
-    console.log("mail.makeMail前" + Date.now());
     mail.makeMail(customer_info);
-    console.log("mail.makeMail後" + Date.now());
     error_part =
       "お問い合わせありがとうございます。返信が届くまで少々お待ちください。";
   }
