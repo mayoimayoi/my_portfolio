@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const ejs = require("ejs");
 const helmet = require("helmet");
-const mail = require("./public/JavaScript/mail");
+const mail = require("./JavaScript/mail");
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
