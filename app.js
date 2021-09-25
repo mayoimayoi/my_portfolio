@@ -3,8 +3,8 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const ejs = require("ejs");
-const NodeMailer = require("nodemailer");
 const helmet = require("helmet");
+const mail = require("./public/JavaScript/mail");
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
@@ -37,7 +37,7 @@ app.post("/sendmail", (req, res) => {
     customer_info.content = "";
     error_part = "文字が長すぎます。1000字以下にしてください";
   } else {
-    sendmail();
+    mail.makeMail(customer_info);
     error_part =
       "お問い合わせありがとうございます。返信が届くまで少々お待ちください。";
   }
@@ -47,52 +47,3 @@ app.post("/sendmail", (req, res) => {
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
-
-// メール送信用関数
-function sendMail(smtpData, mailData) {
-  const transporter = NodeMailer.createTransport(smtpData);
-
-  transporter.sendMail(mailData, function (error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Email sent: " + info.response);
-    }
-  });
-}
-function sendmail() {
-  const smtpData = {
-    host: "smtp.gmail.com",
-    port: "465", // Gmailの場合SSL: 465 / TLS: 587
-    secure: true, // true = SSL
-    auth: {
-      user: process.env.mailaddress,
-      pass: process.env.mailpass,
-    },
-  };
-
-  const mailData = {
-    from: '"お問い合わせ用アドレス" <' + smtpData.auth.user + ">",
-    to: process.env.sendaddress,
-    subject: "【お問い合わせ】ポートフォリオサイトより",
-    text:
-      "アドレス:" +
-      customer_info.address +
-      "アカウント:" +
-      customer_info.account +
-      "内容:" +
-      customer_info.content,
-    html:
-      "<p>アドレス:" +
-      customer_info.address +
-      "</p><p>アカウント:" +
-      customer_info.account +
-      "</p><p>内容:" +
-      customer_info.content +
-      "</p>",
-  };
-
-  // メールを送信
-  sendMail(smtpData, mailData);
-  console.log("送信完了");
-}
