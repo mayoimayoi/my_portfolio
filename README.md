@@ -3,10 +3,13 @@
 ポートフォリオサイトです。
 これまでに作成したWEBアプリや企業様向けに作成したサイトなどを載せています。
 
+○サイト情報
+https://www.portfolio-taku.jp/
+
 ○使用技術
 HTML
 CSS(SCSS)
-JAVASCRIPT
+JavaScript
 NodeJS
 
 ○デプロイ設定
