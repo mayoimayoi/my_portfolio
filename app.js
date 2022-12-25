@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/sendmail", (req, res) => {
+  customer_info.name = req.body.customer_name;
   customer_info.address = req.body.customer_address;
   customer_info.account = req.body.customer_account;
   customer_info.content = req.body.customer_content;

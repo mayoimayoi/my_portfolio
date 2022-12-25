@@ -16,8 +16,9 @@ module.exports = {
   makeMail(customer_info) {
     const smtpData = {
       host: "smtp.gmail.com",
-      port: "465", // Gmailの場合SSL: 465 / TLS: 587
-      secure: true, // true = SSL
+      port: "587", // Gmailの場合SSL: 465 / TLS: 587
+      secure: false, // true = SSL
+      tls: true,
       auth: {
         user: process.env.mailaddress,
         pass: process.env.mailpass,
@@ -28,6 +29,8 @@ module.exports = {
       to: process.env.sendaddress,
       subject: "【お問い合わせ】ポートフォリオサイトより",
       text:
+        "お名前:" +
+        customer_info.name +
         "アドレス:" +
         customer_info.address +
         "アカウント:" +
@@ -35,7 +38,9 @@ module.exports = {
         "内容:" +
         customer_info.content,
       html:
-        "<p>アドレス:" +
+        "<p>お名前:" +
+        customer_info.name +
+        "</p><p>アドレス:" +
         customer_info.address +
         "</p><p>アカウント:" +
         customer_info.account +
